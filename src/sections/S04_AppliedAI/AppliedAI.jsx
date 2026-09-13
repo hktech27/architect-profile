@@ -25,7 +25,7 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
       name: 'CoverIQ++',
       description: 'AI assisted interpretation of commercial insurance policy language.',
       achievement: 'Top 20 · Frontier Forge Buildathon 2026',
-      demoUrl: '/architect-profile/demos/CoverIQ.mp4'
+      demoUrl: 'https://ibm.box.com/s/8medjsg1ubypu82m3e1u5gns6uaj7fx2'
     },
     {
       id: 'br-impactlens',
