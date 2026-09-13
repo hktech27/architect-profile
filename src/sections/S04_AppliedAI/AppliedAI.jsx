@@ -10,7 +10,7 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
     context: 'IBM Consulting ICA Bob a thon 2026',
     achievement: '1st Place',
     description: 'Agentic insurance workflow combining specialized AI agents with enterprise context to support pre claim analysis.',
-    demoUrl: '/architect-profile/demos/PreClaimIQ.mp4',
+    demoUrl: 'https://ibm.box.com/s/bvb03e5jmftfifw1ar7s64vy5huzf2ie',
     workflow: [
       'Insurance context',
       'Specialized agents',
