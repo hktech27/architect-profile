@@ -30,7 +30,7 @@ export default function App() {
   const { activeIndex, goTo, goNext, goPrev } = useNavigation()
   const [demoProject, setDemoProject]   = useState(null)
   const [activePdf, setActivePdf]       = useState(null)
-  const [isDark, setIsDark]             = useState(false)
+  const [isDark, setIsDark]             = useState(true)
   const [careerRoleId, setCareerRoleId] = useState(null)
 
   // Apply / remove dark theme on <html>
