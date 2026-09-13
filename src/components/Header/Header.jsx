@@ -18,20 +18,12 @@ export default function Header({ activeIndex, goTo, isDark, onToggleTheme }) {
         <button
           className={styles.monogram}
           onClick={() => handleNavClick(0)}
-          aria-label="Go to introduction"
+          aria-label="Go to profile"
         >
-          {siteConfig.initials || 'HRK'}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H15v-5h-6v5H4a1 1 0 01-1-1V9.5z" fill="currentColor"/>
+          </svg>
         </button>
-
-        {activeIndex > 0 && (
-          <button
-            className={styles.homeBtn}
-            onClick={() => handleNavClick(0)}
-            aria-label="Back to home"
-          >
-            ← Home
-          </button>
-        )}
 
         <nav className={styles.nav} aria-label="Main navigation">
           {navItems.map((item) => (
@@ -76,7 +68,7 @@ export default function Header({ activeIndex, goTo, isDark, onToggleTheme }) {
           className={`${styles.mobileNavLink} ${activeIndex === 0 ? styles.active : ''}`}
           onClick={() => handleNavClick(0)}
         >
-          Introduction
+          Profile
         </button>
         {navItems.map((item) => (
           <button
@@ -95,7 +87,6 @@ export default function Header({ activeIndex, goTo, isDark, onToggleTheme }) {
           >
             {isDark ? '☀ Light Mode' : '◑ Dark Mode'}
           </button>
-          <ResumeButton variant="primary" label="Resume ↓" />
         </div>
       </div>
     </>

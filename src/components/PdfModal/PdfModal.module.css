@@ -45,14 +45,13 @@
 
 .badge {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-semibold);
   color: var(--c-accent);
   background: var(--c-accent-bg);
   border: 1px solid var(--c-accent-mid);
   padding: 2px 9px;
   border-radius: var(--r-full);
-  text-transform: uppercase;
-  letter-spacing: var(--ls-wider);
+  letter-spacing: var(--ls-wide);
 }
 
 .dialogTitle {

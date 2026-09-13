@@ -1,7 +1,6 @@
 // src/sections/S07_WhatsNext/WhatsNext.jsx
 import React from 'react'
 import { siteConfig } from '../../data/config.js'
-import ResumeButton from '../../components/ResumeButton/ResumeButton.jsx'
 import styles from './WhatsNext.module.css'
 
 const valueDimensions = [
@@ -9,9 +8,9 @@ const valueDimensions = [
     role: 'Architecture & Transformation',
     tag: 'Legacy depth → Modern architecture',
     benefits: [
-      'Connects deep legacy-system understanding with modern cloud, data and modernization architecture.',
-      'Makes architecture decisions around real operational constraints rather than technology preference alone.',
-      'Bridges legacy complexity with modern cloud and data architecture without losing critical business knowledge.',
+      'Architected 6 production AWS data pipelines integrating enterprise sources into a reusable cloud data platform.',
+      'Makes architecture decisions grounded in operational constraints, not technology preference alone.',
+      'Bridges deep legacy knowledge with modern cloud and data architecture without losing critical business context.',
     ]
   },
   {
@@ -27,7 +26,7 @@ const valueDimensions = [
     role: 'Applied AI',
     tag: 'Enterprise context → Practical AI workflows',
     benefits: [
-      'Builds agentic AI workflows that combine enterprise context, specialized agents and human decision-making.',
+      'Built award-winning agentic AI prototypes that combine enterprise context, specialized agents and human decision-making.',
       'Applies AI to architecture, project knowledge and engineering workflows rather than standalone demos.',
       'Extends cloud and data architecture experience into practical enterprise AI use cases.',
     ]
@@ -43,48 +42,77 @@ export default function WhatsNext({ isActive, goTo }) {
       className={styles.section}
       aria-label="Where Himanshu R Khatri creates value"
     >
-      <div className={styles.header}>
-        <div>
-          <p className={styles.kicker}>07 — Executive Value</p>
-          <h2 className={styles.heading}>Where I Create the Most Value.</h2>
-        </div>
+      {/* Page header */}
+      <div className={styles.pageHeader}>
+        <p className={styles.kicker}>07 — Executive Value</p>
+        <h2 className={styles.heading}>Where I create the most value.</h2>
       </div>
 
-      <div className={styles.valueGrid}>
-        {valueDimensions.map((dim) => (
-          <div key={dim.role} className={styles.valueCard}>
-            <div className={styles.cardHeader}>
-              <h3 className={styles.roleTitle}>{dim.role}</h3>
-              <span className={styles.roleTag}>{dim.tag}</span>
-            </div>
-            <ul className={styles.benefitsList}>
-              {dim.benefits.map((b, i) => (
-                <li key={i} className={styles.benefitItem}>
-                  <span className={styles.checkIcon} aria-hidden="true" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+      {/* Main layout */}
+      <div className={styles.mainLayout}>
+
+        {/* Left: navy anchor panel */}
+        <aside className={styles.anchorPanel}>
+          <div className={styles.anchorTopBar} aria-hidden="true" />
+
+          <p className={styles.anchorKicker}>Three dimensions</p>
+
+          <div className={styles.anchorList}>
+            {valueDimensions.map((dim) => (
+              <div key={dim.role} className={styles.anchorItem}>
+                <span className={styles.anchorDot} aria-hidden="true" />
+                <div>
+                  <span className={styles.anchorItemLabel}>{dim.role}</span>
+                  <span className={styles.anchorItemTag}>{dim.tag}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className={styles.callToActionRow}>
-        <p className={styles.aspiration}>
-          I create the most value where architecture, modernization, delivery leadership and practical AI come together.
-        </p>
+          <div className={styles.anchorStatement}>
+            <p className={styles.anchorQuote}>
+              I create the most value where architecture, modernization, delivery leadership and practical AI come together.
+            </p>
+          </div>
+        </aside>
 
-        <div className={styles.footerActions}>
-          <a
-            href={links.email}
-            className={styles.btnPrimary}
-            aria-label="Connect with Himanshu R Khatri via Email"
-          >
-            Start a Conversation ↗
-          </a>
-          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className={styles.footerLink} aria-label="LinkedIn">LinkedIn ↗</a>
-          <ResumeButton variant="primary" label="Download Resume ↓" />
+        {/* Right: value cards + CTA */}
+        <div className={styles.cardsContent}>
+          <div className={styles.valueGrid}>
+            {valueDimensions.map((dim) => (
+              <div key={dim.role} className={styles.valueCard}>
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.roleTitle}>{dim.role}</h3>
+                  <span className={styles.roleTag}>{dim.tag}</span>
+                </div>
+                <ul className={styles.benefitsList}>
+                  {dim.benefits.map((b, i) => (
+                    <li key={i} className={styles.benefitItem}>
+                      <span className={styles.checkIcon} aria-hidden="true" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.ctaRow}>
+            <div className={styles.footerActions}>
+              <a
+                href={links.email}
+                className={styles.btnPrimary}
+                aria-label="Connect with Himanshu R Khatri via Email"
+              >
+                Start a Conversation ↗
+              </a>
+              <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className={styles.footerLink} aria-label="LinkedIn">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
   )

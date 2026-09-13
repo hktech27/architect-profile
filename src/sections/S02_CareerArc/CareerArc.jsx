@@ -1,5 +1,5 @@
 // src/sections/S02_CareerArc/CareerArc.jsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { experience } from '../../data/experience.js'
 import styles from './CareerArc.module.css'
 
@@ -111,8 +111,15 @@ function RoleDetail({ role }) {
 }
 
 /* ── Screen ── */
-export default function CareerArc({ isActive, goTo }) {
+export default function CareerArc({ isActive, goTo, initialRoleId }) {
   const [selectedRole, setSelectedRole] = useState(experienceDesc[0].id)
+
+  // When a specific role is requested from the Profile panel, apply it
+  useEffect(() => {
+    if (initialRoleId) {
+      setSelectedRole(initialRoleId)
+    }
+  }, [initialRoleId])
   const selectedExp = experienceDesc.find((e) => e.id === selectedRole)
 
   const bandSteps = ['Build', 'Lead', 'Deliver', 'Transform', 'Architect + AI']

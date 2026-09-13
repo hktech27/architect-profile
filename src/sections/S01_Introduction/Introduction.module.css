@@ -22,15 +22,35 @@
   overflow: hidden;
 }
 
+/* Ambient blue glow, top-left */
 .left::before {
   content: '';
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: -120px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 70%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
   pointer-events: none;
+}
+
+/* Subtle grid texture overlay */
+.left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--c-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-border) 1px, transparent 1px);
+  background-size: 52px 52px;
+  opacity: 0.20;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.left > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Badge row ── */
@@ -39,7 +59,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--sp-2);
-  margin-bottom: var(--sp-6);
+  margin-bottom: var(--sp-5);
+  animation: fadeUp 0.5s 0.05s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 /* Shared pill base */
@@ -48,8 +69,7 @@
 .pillStatus {
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   padding: 4px 14px;
   border-radius: var(--r-full);
   border: 1px solid transparent;
@@ -78,20 +98,22 @@
 
 /* ── Name ── */
 .name {
-  font-size: clamp(var(--t-3xl), 4vw, var(--t-4xl));
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
   font-weight: var(--fw-black);
-  letter-spacing: var(--ls-tight);
-  line-height: var(--lh-tight);
+  letter-spacing: -0.035em;
+  line-height: 1.0;
   color: var(--c-text-1);
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-3);
+  animation: fadeUp 0.55s 0.12s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .subtitle {
   font-size: var(--t-md);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-semibold);
   color: var(--c-accent);
-  letter-spacing: var(--ls-wide);
-  margin-bottom: var(--sp-5);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--sp-3);
+  animation: fadeUp 0.55s 0.20s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 /* ── Tagline ── */
@@ -99,9 +121,10 @@
   font-size: var(--t-sm);
   color: var(--c-text-3);
   line-height: var(--lh-loose);
-  max-width: 480px;
-  margin-bottom: var(--sp-8);
+  max-width: 520px;
+  margin-bottom: var(--sp-7);
   font-style: italic;
+  animation: fadeUp 0.55s 0.27s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 /* ── Metrics ── */
@@ -109,20 +132,23 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-3);
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-7);
+  animation: fadeUp 0.55s 0.34s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .metricCard {
   background: var(--c-surface);
   border: 1px solid var(--c-border);
   border-radius: var(--r-lg);
-  padding: var(--sp-4) var(--sp-4);
+  padding: var(--sp-4);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   position: relative;
   overflow: hidden;
   transition: all var(--ease-base);
+  box-shadow: var(--sh-xs);
+  cursor: default;
 }
 
 .metricCard::before {
@@ -131,21 +157,25 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: var(--c-accent);
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--ease-slow);
 }
 
 .metricCard:hover::before { transform: scaleX(1); }
-.metricCard:hover { border-color: var(--c-accent-mid); box-shadow: var(--sh-sm); }
+.metricCard:hover {
+  border-color: var(--c-accent-mid);
+  box-shadow: var(--sh-md);
+  transform: translateY(-3px);
+}
 
 .metricValue {
   font-size: var(--t-xl);
   font-weight: var(--fw-black);
   color: var(--c-accent);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
@@ -155,10 +185,9 @@
 
 .metricLabel {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
-  color: var(--c-text-1);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.03em;
+  color: var(--c-text-2);
 }
 
 .metricDetail {
@@ -171,39 +200,40 @@
 .ctas {
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
   flex-wrap: wrap;
+  animation: fadeUp 0.55s 0.42s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .btnPrimary {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 13px var(--sp-6);
+  padding: 11px var(--sp-6);
   font-family: var(--font);
   font-size: var(--t-sm);
   font-weight: var(--fw-semibold);
   color: #fff;
   background: var(--c-accent);
-  border: none;
+  border: 1.5px solid transparent;
   border-radius: var(--r-md);
   cursor: pointer;
   letter-spacing: 0.01em;
-  box-shadow: var(--sh-sm);
+  box-shadow: 0 2px 8px rgba(15,98,254,0.28);
   transition: all var(--ease-base);
 }
 
 .btnPrimary:hover {
   background: var(--c-accent-d);
   transform: translateY(-2px);
-  box-shadow: var(--sh-glow);
+  box-shadow: 0 6px 24px rgba(15,98,254,0.42);
 }
 
 .btnSecondary {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 12px var(--sp-5);
+  padding: 11px var(--sp-5);
   font-family: var(--font);
   font-size: var(--t-sm);
   font-weight: var(--fw-semibold);
@@ -220,6 +250,7 @@
   border-color: var(--c-accent-mid);
   background: var(--c-accent-bg);
   transform: translateY(-1px);
+  box-shadow: var(--sh-xs);
 }
 
 /* ── Right panel ── */
@@ -231,16 +262,30 @@
   padding: calc(var(--header-h) + var(--sp-12)) var(--sp-10) var(--sp-10);
   position: relative;
   overflow: hidden;
+  animation: fadeIn 0.7s 0.15s ease both;
 }
 
+/* Bottom-right glow */
 .right::before {
   content: '';
   position: absolute;
-  bottom: -60px;
-  right: -60px;
-  width: 280px;
-  height: 280px;
-  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
+  bottom: -80px;
+  right: -80px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+/* Top-left subtle purple glow */
+.right::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(124,58,237,0.10) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -260,10 +305,10 @@
 
 .arcLabel {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-widest);
-  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
   color: var(--c-on-dark-3);
+  text-transform: none;
 }
 
 .arcBadge {
@@ -274,7 +319,7 @@
   border: 1px solid var(--c-accent-mid);
   padding: 3px 10px;
   border-radius: var(--r-full);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: 0.03em;
 }
 
 /* ── Quote box — sits above progression ── */
@@ -283,15 +328,15 @@
   border: 1px solid var(--c-dark-border);
   border-left: 3px solid var(--c-accent);
   border-radius: 0 var(--r-lg) var(--r-lg) 0;
-  background: rgba(15,98,254,0.05);
-  margin-bottom: var(--sp-4);
+  background: rgba(15,98,254,0.06);
+  margin-bottom: var(--sp-5);
 }
 
 .quote {
   font-size: var(--t-xs);
   font-style: italic;
   color: var(--c-on-dark-2);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ── Progression steps ── */
@@ -313,27 +358,27 @@
 }
 
 .progStep:hover {
-  background: rgba(15,98,254,0.08);
+  background: rgba(15,98,254,0.09);
   border-color: var(--c-accent-mid);
   transform: translateX(4px);
 }
 
 /* Tier 0 — Architecture + AI: highest prominence */
 .progTier0 {
-  background: rgba(15,98,254,0.10);
+  background: rgba(15,98,254,0.11);
   border-color: var(--c-accent-mid);
 }
 [data-theme="dark"] .progTier0 {
-  background: rgba(69,137,255,0.15);
+  background: rgba(69,137,255,0.16);
 }
 
-/* Tier 1 — Architect: second prominence, subtle highlight */
+/* Tier 1 — Architect */
 .progTier1 {
   background: rgba(255,255,255,0.04);
   border-color: rgba(255,255,255,0.10);
 }
 
-/* Tier 2–5 — progressively more understated */
+/* Tier 2–5 — progressively understated */
 .progTier2 { opacity: 0.90; }
 .progTier3 { opacity: 0.80; }
 .progTier4 { opacity: 0.70; }
@@ -381,13 +426,13 @@
   font-size: var(--t-sm);
   font-weight: var(--fw-semibold);
   color: var(--c-on-dark-1);
-  letter-spacing: var(--ls-snug);
+  letter-spacing: -0.01em;
 }
 
 .progSub {
   font-size: var(--t-2xs);
   color: var(--c-on-dark-3);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: 0.03em;
 }
 
 /* ── Mobile ── */

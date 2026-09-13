@@ -2,43 +2,61 @@
 import React from 'react'
 import styles from './Credentials.module.css'
 
-/* ── Selected credentials reinforcing the executive story across Arch, Cloud, AI, Insurance & Delivery ── */
 const selectedCredentials = [
-  {
-    name: 'AWS Certified Solutions Architect – Associate',
-    issuer: 'AWS',
-    url: 'https://www.credly.com/badges/ad71a8fc-ddbb-481c-a400-963a6ad2c1f2/public_url',
-    domain: 'Cloud Architecture',
-  },
   {
     name: 'IBM Generative & Agentic AI Architect',
     issuer: 'IBM',
     url: 'https://www.credly.com/badges/bb5e8fd3-7951-44d8-a81c-4067e7c5941e/public_url',
-    domain: 'AI Architecture',
   },
   {
     name: 'IBM Generative & Agentic AI Consultant / Business Analyst',
     issuer: 'IBM',
     url: 'https://www.credly.com/badges/37dd80f1-24c9-4539-9079-c6fecc757c37/public_url',
-    domain: 'Applied AI',
+  },
+  {
+    name: 'AWS Certified Solutions Architect – Associate',
+    issuer: 'AWS',
+    url: 'https://www.credly.com/badges/ad71a8fc-ddbb-481c-a400-963a6ad2c1f2/public_url',
+  },
+  {
+    name: 'AWS Certified Cloud Practitioner',
+    issuer: 'AWS',
+    url: 'https://www.credly.com/badges/fd516abd-88ed-401a-aebd-52231612a8a7/public_url',
   },
   {
     name: 'Insurance Insights and Solutions (Silver)',
     issuer: 'IBM',
     url: 'https://www.credly.com/badges/bad5b6f0-6603-4aae-8ab9-b136066df69a/public_url',
-    domain: 'Domain Insights',
+  },
+  {
+    name: 'IBM Consulting – Core Experienced',
+    issuer: 'IBM',
+    url: 'https://www.credly.com/badges/b974f95a-a911-4aa3-9ef2-e5fb800f4593/public_url',
+  },
+  {
+    name: 'IBM Associate Project Manager',
+    issuer: 'IBM',
+    url: 'https://www.credly.com/badges/b974f95a-a911-4aa3-9ef2-e5fb800f4593/public_url',
   },
   {
     name: 'Disciplined Agile Senior Scrum Master (DASSM)',
     issuer: 'PMI',
     url: 'https://www.credly.com/badges/48e7a92a-39a3-4111-af79-5ada0cf335a9/public_url',
-    domain: 'Enterprise Delivery',
+  },
+  {
+    name: 'Certified ScrumMaster (CSM)',
+    issuer: 'Scrum Alliance',
+    url: 'https://certification.scrumalliance.org/accounts/717624/certifications/799743',
+  },
+  {
+    name: 'ITIL Foundation Certificate in IT Service Management',
+    issuer: 'ITIL',
+    url: 'https://mylogin.exin.nl/?Script=GetLinkedInPost&CandidateCertificateGUID=4D1658C0-BBC9-410A-8A51-8FC017DCE7BF&ts=1296656078',
   },
   {
     name: 'Mainframe Application Services – Full Stack zOS Application Development',
     issuer: 'IBM',
     url: 'https://www.credly.com/badges/e0204f0e-f898-4827-a4be-c106edb3144e/public_url',
-    domain: 'Systems & Core Tech',
   },
 ]
 
@@ -70,10 +88,8 @@ export default function Credentials({ isActive, goTo }) {
         {/* ── Visual Anchor Panel ── */}
         <aside className={styles.anchorPanel}>
           <div className={styles.anchorTopBar} aria-hidden="true" />
-          
-          <div className={styles.anchorHeader}>
-            <span className={styles.anchorKicker}>Grounding</span>
-          </div>
+
+          <p className={styles.anchorKicker}>Grounding</p>
 
           <div className={styles.domainList}>
             {anchorDomains.map((domain) => (

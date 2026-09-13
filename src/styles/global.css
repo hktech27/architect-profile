@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   GLOBAL RESET & BASE STYLES — v3 (dark/light theme)
+   GLOBAL RESET & BASE STYLES — v5 (dark/light theme, refined)
    ───────────────────────────────────────────────────────────── */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
@@ -65,6 +65,98 @@ ul, ol { list-style: none; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ── Entrance animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Animation utility classes ── */
+.animFadeUp {
+  animation: fadeUp 0.6s cubic-bezier(0.4,0,0.2,1) both;
+}
+.animFadeIn {
+  animation: fadeIn 0.5s ease both;
+}
+.animScaleIn {
+  animation: scaleIn 0.5s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* ── Shared button system ── */
+
+/* Primary: IBM Blue filled */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 11px var(--sp-6);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: var(--c-accent);
+  border: 1.5px solid transparent;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(15,98,254,0.25);
+  transition: all var(--ease-base);
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--c-accent-d);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(15,98,254,0.40);
+}
+
+/* Secondary: outlined ghost */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 11px var(--sp-5);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border-2);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--ease-base);
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent-mid);
+  background: var(--c-accent-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--sh-xs);
 }
 
 /* ── Utility ── */

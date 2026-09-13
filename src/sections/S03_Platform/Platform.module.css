@@ -17,22 +17,22 @@
 /* ── Page header ── */
 .pageHeader {
   flex-shrink: 0;
+  animation: fadeUp 0.5s 0.08s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .kicker {
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-wider);
+  letter-spacing: 0.06em;
   color: var(--c-accent);
   margin-bottom: var(--sp-2);
-  text-transform: lowercase;
 }
 
 .heading {
   font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
   font-weight: var(--fw-black);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: -0.02em;
   color: var(--c-text-1);
   margin: 0;
 }
@@ -54,6 +54,7 @@
   grid-template-columns: 5fr 4fr 3fr;
   gap: var(--sp-5);
   overflow: hidden;
+  animation: fadeUp 0.55s 0.18s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 /* ── Shared zone ── */
@@ -78,9 +79,8 @@
 .zoneLabel {
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-wider);
-  color: var(--c-text-4);
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--c-text-3);
   margin: 0;
 }
 
@@ -156,12 +156,15 @@
   font-family: var(--font);
   width: 100%;
   text-align: left;
-  transition: border-color var(--ease-fast), background var(--ease-fast);
+  transition: all var(--ease-fast);
+  box-shadow: var(--sh-xs);
 }
 
 .sourceCard:hover {
   border-color: var(--c-accent-mid);
   background: var(--c-accent-bg);
+  transform: translateY(-1px);
+  box-shadow: var(--sh-sm);
 }
 
 .sourceDot {
@@ -170,6 +173,7 @@
   border-radius: 50%;
   background: var(--c-accent);
   flex-shrink: 0;
+  box-shadow: 0 0 4px var(--c-accent-glow);
 }
 
 .sourceName {
@@ -223,6 +227,16 @@
   flex-direction: column;
   gap: var(--sp-3);
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.archBand::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-teal));
 }
 
 .archBandFlow {
@@ -271,7 +285,7 @@
   color: var(--c-on-dark-1);
   line-height: var(--lh-snug);
   margin: 0;
-  letter-spacing: var(--ls-snug);
+  letter-spacing: -0.01em;
   padding-top: var(--sp-2);
   border-top: 1px solid var(--c-dark-border);
 }
@@ -296,6 +310,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-2);
+  transition: all var(--ease-base);
+}
+
+.decisionCard:hover {
+  box-shadow: var(--sh-sm);
+  border-color: var(--c-accent-mid);
+  transform: translateX(2px);
 }
 
 .decisionLabel {
@@ -319,6 +340,7 @@
   margin: 0;
   padding-top: var(--sp-2);
   border-top: 1px solid var(--c-border);
+  font-style: italic;
 }
 
 /* ══════════════════════════════════════
@@ -335,12 +357,18 @@
 .capabilityCard {
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-left: 3px solid var(--c-border-2);
+  border-left: 3px solid var(--c-teal);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   padding: var(--sp-4) var(--sp-5);
   display: flex;
   flex-direction: column;
   gap: var(--sp-2);
+  transition: all var(--ease-base);
+}
+
+.capabilityCard:hover {
+  box-shadow: var(--sh-sm);
+  transform: translateX(2px);
 }
 
 .capabilityLabel {
@@ -348,7 +376,7 @@
   font-weight: var(--fw-bold);
   color: var(--c-text-1);
   margin: 0;
-  letter-spacing: var(--ls-snug);
+  letter-spacing: -0.01em;
 }
 
 .capabilityBody {

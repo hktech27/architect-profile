@@ -17,22 +17,22 @@
 /* ── Page header ── */
 .pageHeader {
   flex-shrink: 0;
+  animation: fadeUp 0.5s 0.08s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .kicker {
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-wider);
+  letter-spacing: 0.06em;
   color: var(--c-accent);
   margin-bottom: var(--sp-2);
-  text-transform: lowercase;
 }
 
 .heading {
   font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
   font-weight: var(--fw-black);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: -0.02em;
   color: var(--c-text-1);
   margin: 0;
 }
@@ -54,6 +54,7 @@
   grid-template-columns: 52fr 48fr;
   gap: var(--sp-5);
   overflow: hidden;
+  animation: fadeUp 0.55s 0.18s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 /* ────────────────────────── LEFT COLUMN: HERO PANEL ── */
@@ -67,17 +68,17 @@
   background: var(--c-dark);
   border: 1px solid var(--c-dark-border);
   border-radius: var(--r-xl);
-  padding: var(--sp-5) var(--sp-5); /* reduced padding to save 10-15% vertical space */
+  padding: var(--sp-6) var(--sp-6);
   display: flex;
   flex-direction: column;
-  gap: var(--sp-3); /* reduced gap from var(--sp-4) to reduce height */
+  gap: var(--sp-4);
   flex: 1;
   min-height: 0;
   position: relative;
   overflow-y: auto;
 }
 
-/* Top bar like original featured card */
+/* Gradient top bar */
 .heroTopBar {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -95,9 +96,8 @@
 
 .heroContext {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
   color: var(--c-on-dark-3);
 }
 
@@ -109,6 +109,7 @@
   border: 1px solid var(--c-gold-border);
   padding: 3px 10px;
   border-radius: var(--r-full);
+  letter-spacing: 0.02em;
 }
 
 .heroBody {
@@ -123,7 +124,7 @@
   font-weight: var(--fw-black);
   color: var(--c-on-dark-1);
   margin: 0;
-  letter-spacing: var(--ls-tight);
+  letter-spacing: -0.02em;
 }
 
 .heroDescription {
@@ -135,10 +136,10 @@
 
 /* Visual Workflow block */
 .workflowBlock {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.03);
   border: 1px solid var(--c-dark-border);
   border-radius: var(--r-lg);
-  padding: var(--sp-3) var(--sp-4); /* reduced vertical padding */
+  padding: var(--sp-4) var(--sp-4);
   display: flex;
   flex-direction: column;
   gap: var(--sp-3);
@@ -162,6 +163,12 @@
   flex: 1;
   text-align: center;
   min-width: 0;
+  transition: border-color var(--ease-fast), background var(--ease-fast);
+}
+
+.workflowStepCard:hover {
+  background: rgba(15,98,254,0.12);
+  border-color: var(--c-accent-mid);
 }
 
 .workflowStepText {
@@ -193,30 +200,32 @@
   display: flex;
   margin-top: auto;
   flex-shrink: 0;
-  justify-content: flex-start; /* align compact button to lower left */
+  justify-content: flex-start;
 }
 
-/* Compact outlined View demo button positioned in lower left */
+/* Compact outlined View demo button */
 .compactDemoBtn {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 6px var(--sp-4);
+  padding: 8px var(--sp-5);
   font-family: var(--font);
-  font-size: var(--t-2xs);
+  font-size: var(--t-xs);
   font-weight: var(--fw-semibold);
   color: var(--c-on-dark-1);
   background: transparent;
-  border: 1px solid var(--c-border-2);
+  border: 1.5px solid rgba(255,255,255,0.22);
   border-radius: var(--r-md);
   cursor: pointer;
   transition: all var(--ease-base);
+  letter-spacing: 0.01em;
 }
 
 .compactDemoBtn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--c-on-dark-1);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.55);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 /* ────────────────────────── RIGHT COLUMN ── */
@@ -237,21 +246,20 @@
 
 .sectionTitle {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  color: var(--c-text-4);
-  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.05em;
+  color: var(--c-text-3);
   margin: 0;
-  padding-bottom: var(--sp-1);
+  padding-bottom: var(--sp-2);
   border-bottom: 1px solid var(--c-border);
   flex-shrink: 0;
 }
 
-/* Light container on the right side with a subtle blue accent top border */
+/* Light container — right side cards */
 .lightContainer {
   background: var(--c-surface);
   border: 1px solid var(--c-border);
-  border-top: 2px solid var(--c-accent-mid); /* subtle blue top border accent */
+  border-top: 2.5px solid var(--c-accent-mid);
   border-radius: var(--r-xl);
   padding: var(--sp-4) var(--sp-5);
   display: flex;
@@ -263,7 +271,7 @@
   box-shadow: var(--sh-xs);
 }
 
-/* Row 1 & 2 layout */
+/* Project rows */
 .projectRow {
   display: flex;
   flex-direction: column;
@@ -288,6 +296,7 @@
   font-weight: var(--fw-bold);
   color: var(--c-text-1);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .projectContext {
@@ -297,19 +306,27 @@
 }
 
 .rowDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
   color: var(--c-accent);
-  background: none;
-  border: none;
+  background: var(--c-accent-bg);
+  border: 1px solid var(--c-accent-mid);
+  border-radius: var(--r-md);
   cursor: pointer;
   font-family: var(--font);
-  padding: 0;
-  transition: opacity var(--ease-fast);
+  padding: 4px 10px;
+  transition: all var(--ease-fast);
+  white-space: nowrap;
 }
 
 .rowDemoBtn:hover {
-  opacity: 0.7;
+  background: var(--c-accent);
+  color: #fff;
+  border-color: var(--c-accent);
+  transform: translateY(-1px);
 }
 
 .projectDescription {
@@ -350,6 +367,7 @@
   border-radius: 50%;
   background: var(--c-accent);
   flex-shrink: 0;
+  box-shadow: 0 0 4px var(--c-accent-glow);
 }
 
 .everydayItemTitle {
@@ -357,6 +375,7 @@
   font-weight: var(--fw-bold);
   color: var(--c-text-1);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .everydayItemDescription {
@@ -372,12 +391,22 @@
   background: var(--c-dark);
   border: 1px solid var(--c-dark-border);
   border-radius: var(--r-xl);
-  padding: var(--sp-3) var(--sp-5);
+  padding: var(--sp-3) var(--sp-6);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.statementBar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple), var(--c-teal));
 }
 
 .statementText {

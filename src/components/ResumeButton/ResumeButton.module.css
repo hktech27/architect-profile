@@ -4,9 +4,9 @@
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 12px var(--sp-5);
+  padding: 7px var(--sp-4);
   font-family: var(--font);
-  font-size: var(--t-sm);
+  font-size: var(--t-xs);
   font-weight: var(--fw-semibold);
   letter-spacing: 0.01em;
   border-radius: var(--r-md);
@@ -16,7 +16,7 @@
   text-decoration: none;
 }
 
-/* Ghost / secondary style — matches btnSecondary in Introduction */
+/* Ghost style — sits in header without overpowering the nav */
 .primary {
   color: var(--c-text-2);
   background: var(--c-surface);
@@ -29,12 +29,13 @@
   border-color: var(--c-accent-mid);
   background: var(--c-accent-bg);
   transform: translateY(-1px);
+  box-shadow: var(--sh-xs);
 }
 
 .disabled {
   background: transparent;
   color: var(--c-text-4);
-  border: 1.5px solid var(--c-border-2);
+  border: 1.5px solid var(--c-border);
   cursor: not-allowed;
-  opacity: 0.65;
+  opacity: 0.50;
 }

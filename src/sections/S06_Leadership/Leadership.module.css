@@ -1,5 +1,6 @@
 /* src/sections/S06_Leadership/Leadership.module.css */
 
+/* ── Section shell ── */
 .section {
   width: 100vw;
   height: 100vh;
@@ -8,24 +9,21 @@
   background: var(--c-bg);
   overflow: hidden;
   flex-shrink: 0;
-  padding: calc(var(--header-h) + var(--sp-8)) var(--sp-12) calc(var(--sp-8) + 66px);
+  padding: calc(var(--header-h) + var(--sp-5)) var(--sp-12) calc(var(--sp-4) + 66px);
+  gap: var(--sp-4);
+  position: relative;
 }
 
-/* ── Header ── */
-.header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--sp-6);
-  margin-bottom: var(--sp-4);
+/* ── Page header ── */
+.pageHeader {
   flex-shrink: 0;
+  animation: fadeUp 0.5s 0.08s cubic-bezier(0.4,0,0.2,1) both;
 }
 
 .kicker {
   font-size: var(--t-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-widest);
-  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
   color: var(--c-accent);
   margin-bottom: var(--sp-2);
 }
@@ -34,75 +32,147 @@
   font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
   font-weight: var(--fw-black);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: -0.02em;
   color: var(--c-text-1);
+  margin: 0;
 }
 
-.headerRight {
+/* ── Main layout: 30% anchor + 70% cards ── */
+.mainLayout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 30fr 70fr;
+  gap: var(--sp-5);
+  overflow: hidden;
+  animation: fadeUp 0.55s 0.18s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+/* ────────────────────────── NAVY ANCHOR PANEL ── */
+.anchorPanel {
+  background: var(--c-dark);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-6);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: var(--sp-3);
+  justify-content: space-between;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.leadershipTag {
-  flex-shrink: 0;
-  padding: var(--sp-2) var(--sp-4);
-  background: var(--c-bg-alt);
-  border: 1px solid var(--c-border);
-  border-radius: var(--r-full);
+.anchorTopBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
+}
+
+.anchorKicker {
   font-size: var(--t-2xs);
   font-weight: var(--fw-semibold);
-  color: var(--c-text-3);
-  letter-spacing: var(--ls-wide);
-  align-self: flex-start;
-  margin-top: var(--sp-3);
-}
-
-/* ── Proof strip ── */
-.proofStrip {
-  font-size: var(--t-xs);
-  font-weight: var(--fw-medium);
-  color: var(--c-text-4);
-  letter-spacing: var(--ls-wide);
-  text-align: center;
-  padding: var(--sp-2) 0 var(--sp-4);
-  border-top: 1px solid var(--c-border);
-  border-bottom: 1px solid var(--c-border);
-  margin-bottom: var(--sp-5);
+  letter-spacing: 0.06em;
+  color: var(--c-on-dark-3);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--c-dark-border);
+  margin-bottom: var(--sp-4);
   flex-shrink: 0;
 }
 
-/* ── Cards grid ── */
+/* Proof items stacked vertically */
+.proofList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+  justify-content: center;
+}
+
+.proofItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-3);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-lg);
+  transition: all var(--ease-fast);
+}
+
+.proofItem:hover {
+  background: rgba(15,98,254,0.09);
+  border-color: var(--c-accent-mid);
+}
+
+.proofDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px var(--c-accent-glow);
+}
+
+.proofText {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-on-dark-1);
+  letter-spacing: -0.01em;
+  line-height: var(--lh-snug);
+}
+
+.anchorStatement {
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-dark-border);
+  flex-shrink: 0;
+}
+
+.anchorQuote {
+  font-size: var(--t-sm);
+  line-height: var(--lh-base);
+  color: var(--c-on-dark-2);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ────────────────────────── CARDS CONTENT ── */
+.cardsContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: var(--sp-4);
+  overflow: hidden;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-4);
   flex: 1;
   min-height: 0;
-  margin-bottom: var(--sp-5);
   overflow: hidden;
 }
 
 .card {
-  background: var(--c-bg);
+  background: var(--c-surface);
   border: 1.5px solid var(--c-border);
   border-radius: var(--r-xl);
-  padding: var(--sp-6);
+  padding: var(--sp-5) var(--sp-5);
   display: flex;
   flex-direction: column;
-  gap: 0;
   transition: all var(--ease-base);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--sh-xs);
 }
 
 .card::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
   transform: scaleX(0);
@@ -113,36 +183,30 @@
 
 .card:hover {
   border-color: var(--c-accent-mid);
-  background: var(--c-surface);
   transform: translateY(-3px);
   box-shadow: var(--sh-lg);
 }
 
 .card:hover::before { transform: scaleX(1); }
 
-/* ── Card top ── */
-.cardTop {
-  flex-shrink: 0;
-  margin-bottom: var(--sp-4);
-}
-
 /* ── Eyebrow ── */
 .eyebrow {
+  display: inline-block;
   font-size: var(--t-2xs);
   font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wider);
-  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--c-accent);
+  margin-bottom: var(--sp-3);
 }
 
 /* ── Headline ── */
 .headline {
-  font-size: var(--t-lg);
+  font-size: var(--t-base);
   font-weight: var(--fw-black);
   color: var(--c-text-1);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
-  margin-bottom: var(--sp-4);
+  letter-spacing: -0.015em;
+  margin-bottom: var(--sp-3);
 }
 
 /* ── Body ── */
@@ -150,7 +214,7 @@
   font-size: var(--t-sm);
   color: var(--c-text-2);
   line-height: var(--lh-base);
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-4);
 }
 
 /* ── Outcomes ── */
@@ -158,65 +222,59 @@
   display: flex;
   flex-direction: column;
   gap: var(--sp-2);
-  margin-bottom: var(--sp-5);
+  margin-bottom: var(--sp-4);
 }
 
 .outcomeLine {
-  font-size: var(--t-xs);
-  color: var(--c-text-2);
-  line-height: var(--lh-base);
   display: flex;
-  align-items: baseline;
-  gap: var(--sp-2);
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  border-left: 2px solid var(--c-border-2);
 }
 
 .outcomeLabel {
   font-size: var(--t-2xs);
   font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--c-text-4);
-  white-space: nowrap;
-  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  color: var(--c-accent);
 }
 
-/* ── Principle quote ── */
+.outcomeText {
+  font-size: var(--t-xs);
+  color: var(--c-text-1);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-medium);
+}
+
+/* ── Principle quote — pinned to card bottom ── */
 .principle {
-  font-size: var(--t-sm);
+  font-size: var(--t-xs);
   font-style: italic;
   color: var(--c-text-2);
   line-height: var(--lh-snug);
-  padding: var(--sp-4) var(--sp-5);
+  padding: var(--sp-3) var(--sp-4);
   background: var(--c-accent-bg);
   border: 1px solid var(--c-accent-mid);
   border-left: 3px solid var(--c-accent);
   border-radius: 0 var(--r-lg) var(--r-lg) 0;
-  position: relative;
   margin-top: auto;
+  position: relative;
 }
 
 .principle::before {
   content: '"';
   position: absolute;
-  top: -8px;
-  left: var(--sp-4);
-  font-size: var(--t-3xl);
+  top: -6px;
+  left: var(--sp-3);
+  font-size: var(--t-2xl);
   color: var(--c-accent);
   font-style: normal;
   font-weight: var(--fw-black);
   line-height: 1;
-  opacity: 0.15;
-}
-
-/* ── Closing statement ── */
-.closing {
-  font-size: var(--t-sm);
-  font-style: italic;
-  color: var(--c-text-3);
-  text-align: center;
-  padding: var(--sp-3) var(--sp-8);
-  border-top: 1px solid var(--c-border);
-  flex-shrink: 0;
+  opacity: 0.12;
 }
 
 /* ── Mobile ── */
@@ -224,9 +282,12 @@
   .section {
     height: auto;
     min-height: 100svh;
-    padding: calc(var(--header-h) + var(--sp-8)) var(--sp-5) var(--sp-8);
+    padding: calc(var(--header-h) + var(--sp-5)) var(--sp-5) var(--sp-8);
+    overflow: visible;
+  }
+  .mainLayout {
+    grid-template-columns: 1fr;
     overflow: visible;
   }
   .cards { grid-template-columns: 1fr; overflow: visible; }
-  .header { flex-direction: column; }
 }

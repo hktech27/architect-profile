@@ -20,3 +20,6 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large demo video files (served locally, not tracked in git)
+public/demos/*.mp4

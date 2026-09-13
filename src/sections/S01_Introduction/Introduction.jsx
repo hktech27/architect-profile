@@ -1,26 +1,26 @@
 // src/sections/S01_Introduction/Introduction.jsx
 import React from 'react'
 import { siteConfig } from '../../data/config.js'
-import ResumeButton from '../../components/ResumeButton/ResumeButton.jsx'
 import styles from './Introduction.module.css'
 
 // Reverse chronology: current positioning first, foundation last.
 // dot = display number/star; tier = visual weight class (0=highest)
+// roleId matches experience.js ids so CareerArc can pre-select the right entry
 const progressionSteps = [
-  { label: 'Architecture + AI', subtitle: 'Agentic AI · Enterprise Workflows', dot: '★', tier: 0 },
-  { label: 'Architect',         subtitle: 'Modernization · Cloud · Data',       dot: '5', tier: 1 },
-  { label: 'Transform',         subtitle: '$5M Program Portfolio',              dot: '4', tier: 2 },
-  { label: 'Deliver',           subtitle: 'Technical PM & Project Delivery',    dot: '3', tier: 3 },
-  { label: 'Lead',              subtitle: 'Guidewire & Data Conversion',        dot: '2', tier: 4 },
-  { label: 'Build',             subtitle: 'Mainframe & Enterprise Engineering', dot: '1', tier: 5 },
+  { label: 'Architecture + AI', subtitle: 'Agentic AI · Enterprise Workflows', dot: '★', tier: 0, roleId: 'architect'       },
+  { label: 'Architect',         subtitle: 'Modernization · Cloud · Data',       dot: '5', tier: 1, roleId: 'architect'       },
+  { label: 'Transform',         subtitle: '$5M Program Portfolio',              dot: '4', tier: 2, roleId: 'program-mgr'     },
+  { label: 'Deliver',           subtitle: 'Technical PM & Project Delivery',    dot: '3', tier: 3, roleId: 'tech-pm'         },
+  { label: 'Lead',              subtitle: 'Guidewire & Data Conversion',        dot: '2', tier: 4, roleId: 'tech-lead'       },
+  { label: 'Build',             subtitle: 'Mainframe & Enterprise Engineering', dot: '1', tier: 5, roleId: 'eng-foundation'  },
 ]
 
-export default function Introduction({ isActive, goTo }) {
+export default function Introduction({ isActive, goTo, onGoToCareer }) {
   return (
     <section
-      id="introduction"
+      id="profile"
       className={styles.section}
-      aria-label="Executive Profile Introduction"
+      aria-label="Executive Profile"
     >
       {/* Left: editorial typography & executive value statement */}
       <div className={styles.left}>
@@ -59,7 +59,6 @@ export default function Introduction({ isActive, goTo }) {
           >
             Where I Add Value ↗
           </button>
-          <ResumeButton label="Resume ↓" />
         </div>
       </div>
 
@@ -82,7 +81,7 @@ export default function Introduction({ isActive, goTo }) {
               <div
                 key={step.label}
                 className={`${styles.progStep} ${styles[`progTier${step.tier}`]}`}
-                onClick={() => goTo(1)}
+                onClick={() => onGoToCareer(step.roleId)}
                 style={{ cursor: 'pointer' }}
                 title={`View ${step.label} in Career Arc`}
               >

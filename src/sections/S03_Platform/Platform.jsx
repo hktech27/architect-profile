@@ -88,7 +88,7 @@ export default function Platform({ isActive, onOpenPdf }) {
                 <button
                   key={src.name}
                   className={styles.sourceCard}
-                  onClick={() => onOpenPdf && onOpenPdf({ url: src.pdf, title: `${src.name} — Architecture Diagram` })}
+                  onClick={() => onOpenPdf && onOpenPdf({ url: src.pdf, title: `${src.name} Architecture Diagram` })}
                   title={`View ${src.name} architecture diagram`}
                 >
                   <span className={styles.sourceDot} aria-hidden="true" />

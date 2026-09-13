@@ -73,9 +73,9 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
       {/* PAGE HEADER */}
       <div className={styles.pageHeader}>
         <p className={styles.kicker}>04 — Applied AI</p>
-        <h2 className={styles.heading}>Applying AI to real enterprise problems.</h2>
+        <h2 className={styles.heading}>Building AI fluency through enterprise prototypes and practice.</h2>
         <p className={styles.subheading}>
-          From award winning prototypes to everyday architecture and engineering workflows.
+          Award-winning prototypes and AI embedded into everyday architecture and engineering work.
         </p>
       </div>
 
@@ -190,7 +190,7 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
       {/* STATEMENT BAR (Visually echoes Screens 02 & 03) */}
       <footer className={styles.statementBar}>
         <p className={styles.statementText}>
-          My focus is AI that becomes part of how teams work, not AI that ends with a demo.
+          My intent is AI that becomes part of how teams work. I am building toward that through prototypes, agents and practice.
         </p>
       </footer>
     </section>

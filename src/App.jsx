@@ -31,6 +31,7 @@ export default function App() {
   const [demoProject, setDemoProject]   = useState(null)
   const [activePdf, setActivePdf]       = useState(null)
   const [isDark, setIsDark]             = useState(false)
+  const [careerRoleId, setCareerRoleId] = useState(null)
 
   // Apply / remove dark theme on <html>
   useEffect(() => {
@@ -44,6 +45,11 @@ export default function App() {
 
   const toggleTheme = () => setIsDark((d) => !d)
 
+  const goToCareer = (roleId) => {
+    setCareerRoleId(roleId)
+    goTo(1)
+  }
+
   const sectionProps = (index) => ({
     isActive:    activeIndex === index,
     goTo,
@@ -51,6 +57,8 @@ export default function App() {
     goPrev,
     isDark,
     onOpenPdf:   setActivePdf,
+    ...(index === 0 ? { onGoToCareer: goToCareer } : {}),
+    ...(index === 1 ? { initialRoleId: careerRoleId } : {}),
     ...(index === 3 ? { onOpenDemo: setDemoProject } : {}),
   })
 
@@ -92,7 +100,7 @@ export default function App() {
       {demoProject && (
         <VideoModal
           url={demoProject.demoUrl}
-          title={`${demoProject.name} — Demo`}
+          title={`${demoProject.name} Demo`}
           onClose={() => setDemoProject(null)}
         />
       )}

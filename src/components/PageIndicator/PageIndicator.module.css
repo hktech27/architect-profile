@@ -9,8 +9,8 @@
   display: flex;
   align-items: center;
   gap: var(--sp-3);
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px) saturate(200%);
   border: 1px solid var(--c-border);
   border-radius: var(--r-full);
   padding: 7px var(--sp-4);
@@ -19,7 +19,8 @@
 }
 
 [data-theme="dark"] .indicator {
-  background: rgba(15,28,46,0.92);
+  background: rgba(15,28,46,0.95);
+  border-color: var(--c-border);
 }
 
 
@@ -68,7 +69,7 @@
 
 .dot.activeDot {
   background: var(--c-accent);
-  transform: scale(1.5);
+  transform: scale(1.4);
   box-shadow: 0 0 0 3px var(--c-accent-glow);
 }
 
