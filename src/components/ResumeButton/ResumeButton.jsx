@@ -4,24 +4,36 @@ import { siteConfig } from '../../data/config.js'
 import styles from './ResumeButton.module.css'
 
 /**
- * ResumeButton — renders an anchor download link if resumePath is set,
- * or a disabled button with tooltip if not yet configured.
- *
- * variant: 'primary' | 'ghost'
+ * ResumeButton — triggers download of all configured resume files on click.
+ * Downloads both 1-page and full resume simultaneously.
  */
-export default function ResumeButton({ variant = 'primary', label = 'Resume ↓' }) {
-  const { resumePath } = siteConfig
+export default function ResumeButton({ label = 'Resume ↓' }) {
+  const { resumePaths } = siteConfig
 
-  if (resumePath) {
+  const handleClick = () => {
+    if (!resumePaths?.length) return
+    resumePaths.forEach(({ file, name }) => {
+      const a = document.createElement('a')
+      a.href = file
+      a.download = name
+      a.style.display = 'none'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    })
+  }
+
+  if (resumePaths?.length) {
     return (
-      <a
-        href={resumePath}
-        download="Himanshu-Khatri-Resume.pdf"
+      <button
+        type="button"
         className={`${styles.btn} ${styles.primary}`}
-        aria-label="Download resume PDF"
+        onClick={handleClick}
+        aria-label="Download resume — 1-page and full version"
+        title="Downloads both 1-page and full resume"
       >
         {label}
-      </a>
+      </button>
     )
   }
 

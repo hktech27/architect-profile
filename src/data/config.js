@@ -17,7 +17,10 @@ export const siteConfig = {
     { label: 'Production Pipelines',  value: '6 Live',  detail: 'AWS · Enterprise data sources' },
   ],
 
-  resumePath: '/architect-profile/resume/Himanshu-Khatri-Resume.pdf',
+  resumePaths: [
+    { file: '/architect-profile/resume/Himanshu_Resume_1Page.pdf',  name: 'Himanshu-Khatri-Resume-1Page.pdf' },
+    { file: '/architect-profile/resume/Himanshu_Resume_Full.pdf',   name: 'Himanshu-Khatri-Resume-Full.pdf'  },
+  ],
 
   links: {
     linkedin: 'https://www.linkedin.com/in/himanshu-khatri-7b8390399/',
