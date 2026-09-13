@@ -5,11 +5,6 @@ node_modules/
 dist/
 build/
 
-# Large media files (use external hosting or Git LFS instead)
-public/demos/*.mp4
-public/demos/*.mov
-public/demos/*.avi
-public/demos/*.mkv
 
 # Environment
 .env

@@ -82,8 +82,8 @@ export function useNavigation() {
       if (isMobile()) return
       // Don't intercept if focus is inside a modal or scrollable area
       if (e.target.closest('[data-modal]') || e.target.closest('[data-scrollable]')) return
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goNext() }
-      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); goPrev() }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goNext() }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goPrev() }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
