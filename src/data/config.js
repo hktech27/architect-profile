@@ -14,7 +14,7 @@ export const siteConfig = {
     { label: 'Enterprise Experience', value: '19+ Yrs', detail: 'Mainframe to Cloud & AI' },
     { label: 'Program Portfolio',     value: '$5M',     detail: 'Delivery · Risk · Stakeholders' },
     { label: 'Applied AI Innovation', value: '1st Place', detail: 'IBM ICA Bob-a-thon 2026' },
-    { label: 'Production Pipelines',  value: '6 Live',  detail: 'Enterprise AWS integrations' },
+    { label: 'Production Pipelines',  value: '6 Live',  detail: 'Production data pipelines · AWS' },
   ],
 
   resumePath: '/architect-profile/resume/Himanshu-Khatri-Resume.pdf',
