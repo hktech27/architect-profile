@@ -23,8 +23,7 @@ export default function VideoModal({ url, title, onClose }) {
   }, [onClose])
 
   // Detect URL type
-  const isVideo   = /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
-  const isBoxLink = /box\.com\/s\//i.test(url)
+  const isVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
 
   // Convert YouTube / Vimeo watch URLs to embed URLs
   const getEmbedUrl = (rawUrl) => {
@@ -38,13 +37,6 @@ export default function VideoModal({ url, title, onClose }) {
   }
 
   const embedUrl = getEmbedUrl(url)
-
-  // Box share links open best in a new tab — open immediately and close modal
-  if (isBoxLink) {
-    window.open(url, '_blank', 'noopener,noreferrer')
-    onClose()
-    return null
-  }
 
   return (
     <div

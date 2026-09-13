@@ -55,12 +55,14 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
   ]
 
   const handleDemoClick = (project) => {
-    if (onOpenDemo && project.demoUrl) {
-      onOpenDemo({
-        id: project.id,
-        name: project.name,
-        demoUrl: project.demoUrl
-      })
+    if (!project.demoUrl) return
+    // Box links open directly in a new tab — no modal needed
+    if (/box\.com\/s\//i.test(project.demoUrl)) {
+      window.open(project.demoUrl, '_blank', 'noopener,noreferrer')
+      return
+    }
+    if (onOpenDemo) {
+      onOpenDemo({ id: project.id, name: project.name, demoUrl: project.demoUrl })
     }
   }
 
