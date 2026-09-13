@@ -12,7 +12,7 @@ export const siteConfig = {
 
   executiveStats: [
     { label: 'Enterprise Experience', value: '19+ Yrs', detail: 'Mainframe to Cloud & AI' },
-    { label: 'Program Portfolio',     value: '$5M',     detail: 'Delivery · Risk · Stakeholders' },
+    { label: 'Program Portfolio',     value: '$2M',     detail: 'Delivery · Risk · Stakeholders' },
     { label: 'Applied AI Innovation', value: '1st Place', detail: 'IBM ICA Bob-a-thon 2026' },
     { label: 'Production Pipelines',  value: '6 Live',  detail: 'AWS · Enterprise data sources' },
   ],

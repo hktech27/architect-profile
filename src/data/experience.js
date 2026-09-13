@@ -74,15 +74,15 @@ export const experience = [
     title: 'Program Manager',
     org: 'IBM Consulting | Amica Mutual Insurance',
     theme: 'TRANSFORM',
-    navProof: '$5M portfolio',
+    navProof: '$2M portfolio',
     positioning: 'Scaled from project delivery to formal program leadership.',
     bullets: [
-      'Managed a $5M portfolio covering legacy and digital transformation initiatives.',
+      'Managed a $2M portfolio covering legacy and digital transformation initiatives.',
       'Coordinated delivery across multiple programs and cross-functional teams.',
       'Managed delivery risks, dependencies, resources and financials.',
       'Worked with senior business and technology stakeholders on priorities and delivery decisions.',
     ],
-    metric: '$5M transformation portfolio',
+    metric: '$2M transformation portfolio',
   },
 
   {

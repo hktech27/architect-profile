@@ -36,7 +36,7 @@ export const leadershipExamples = [
 ]
 
 export const leadershipProof =
-  '~12-person hybrid team  ·  $5M portfolio leadership  ·  Architecture & delivery  ·  Senior stakeholder alignment'
+  '~12-person hybrid team  ·  $2M portfolio leadership  ·  Architecture & delivery  ·  Senior stakeholder alignment'
 
 export const leadershipClosing =
   "My role isn't to make every technical decision myself. It is to help teams make better decisions together."

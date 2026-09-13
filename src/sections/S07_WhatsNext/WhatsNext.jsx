@@ -18,7 +18,7 @@ const valueDimensions = [
     tag: 'Architecture that teams can execute',
     benefits: [
       'Brings engineering depth and program-level delivery perspective to architecture decisions.',
-      'Led a $5M transformation portfolio across delivery, governance, risk, budget and stakeholder priorities.',
+      'Led a $2M transformation portfolio across delivery, governance, risk, budget and stakeholder priorities.',
       'Helps technical teams and management navigate trade-offs and converge on practical decisions.',
     ]
   },

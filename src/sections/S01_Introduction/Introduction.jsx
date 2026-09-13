@@ -9,7 +9,7 @@ import styles from './Introduction.module.css'
 const progressionSteps = [
   { label: 'Architecture + AI', subtitle: 'Agentic AI · Enterprise Workflows', dot: '★', tier: 0, roleId: 'architect'       },
   { label: 'Architect',         subtitle: 'Modernization · Cloud · Data',       dot: '5', tier: 1, roleId: 'architect'       },
-  { label: 'Transform',         subtitle: '$5M Program Portfolio',              dot: '4', tier: 2, roleId: 'program-mgr'     },
+  { label: 'Transform',         subtitle: '$2M Program Portfolio',              dot: '4', tier: 2, roleId: 'program-mgr'     },
   { label: 'Deliver',           subtitle: 'Technical PM & Project Delivery',    dot: '3', tier: 3, roleId: 'tech-pm'         },
   { label: 'Lead',              subtitle: 'Guidewire & Data Conversion',        dot: '2', tier: 4, roleId: 'tech-lead'       },
   { label: 'Build',             subtitle: 'Mainframe & Enterprise Engineering', dot: '1', tier: 5, roleId: 'eng-foundation'  },
