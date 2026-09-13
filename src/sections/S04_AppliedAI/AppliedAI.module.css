@@ -1,0 +1,407 @@
+/* src/sections/S04_AppliedAI/AppliedAI.module.css */
+
+/* ── Section shell ── */
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: calc(var(--header-h) + var(--sp-5)) var(--sp-12) calc(var(--sp-4) + 66px);
+  gap: var(--sp-4);
+  position: relative;
+}
+
+/* ── Page header ── */
+.pageHeader {
+  flex-shrink: 0;
+}
+
+.kicker {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+  text-transform: lowercase;
+}
+
+.heading {
+  font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
+  font-weight: var(--fw-black);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-text-1);
+  margin: 0;
+}
+
+.subheading {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  font-style: italic;
+  margin-top: var(--sp-2);
+  margin-bottom: 0;
+  line-height: var(--lh-base);
+}
+
+/* ── Two-column layout ── */
+.mainLayout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 52fr 48fr;
+  gap: var(--sp-5);
+  overflow: hidden;
+}
+
+/* ────────────────────────── LEFT COLUMN: HERO PANEL ── */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.heroPanel {
+  background: var(--c-dark);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-5) var(--sp-5); /* reduced padding to save 10-15% vertical space */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3); /* reduced gap from var(--sp-4) to reduce height */
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Top bar like original featured card */
+.heroTopBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
+}
+
+.heroHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-shrink: 0;
+}
+
+.heroContext {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--c-on-dark-3);
+}
+
+.heroGoldBadge {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--c-gold);
+  background: var(--c-gold-bg);
+  border: 1px solid var(--c-gold-border);
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+}
+
+.heroBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.heroTitle {
+  font-size: clamp(var(--t-lg), 2.2vw, var(--t-xl));
+  font-weight: var(--fw-black);
+  color: var(--c-on-dark-1);
+  margin: 0;
+  letter-spacing: var(--ls-tight);
+}
+
+.heroDescription {
+  font-size: var(--t-sm);
+  color: var(--c-on-dark-2);
+  line-height: var(--lh-base);
+  margin: 0;
+}
+
+/* Visual Workflow block */
+.workflowBlock {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-3) var(--sp-4); /* reduced vertical padding */
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.workflowSteps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-1);
+  flex-wrap: nowrap;
+}
+
+.workflowStepCard {
+  background: var(--c-dark-2);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-md);
+  padding: 8px var(--sp-2);
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.workflowStepText {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.workflowArrow {
+  color: var(--c-on-dark-3);
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  flex-shrink: 0;
+}
+
+.workflowNote {
+  font-size: var(--t-2xs);
+  color: var(--c-on-dark-3);
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+}
+
+.heroActions {
+  display: flex;
+  margin-top: auto;
+  flex-shrink: 0;
+  justify-content: flex-start; /* align compact button to lower left */
+}
+
+/* Compact outlined View demo button positioned in lower left */
+.compactDemoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px var(--sp-4);
+  font-family: var(--font);
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  background: transparent;
+  border: 1px solid var(--c-border-2);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--ease-base);
+}
+
+.compactDemoBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--c-on-dark-1);
+  color: #fff;
+}
+
+/* ────────────────────────── RIGHT COLUMN ── */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-height: 0;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  min-height: 0;
+  flex: 1;
+}
+
+.sectionTitle {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  color: var(--c-text-4);
+  text-transform: uppercase;
+  margin: 0;
+  padding-bottom: var(--sp-1);
+  border-bottom: 1px solid var(--c-border);
+  flex-shrink: 0;
+}
+
+/* Light container on the right side with a subtle blue accent top border */
+.lightContainer {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-top: 2px solid var(--c-accent-mid); /* subtle blue top border accent */
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  box-shadow: var(--sh-xs);
+}
+
+/* Row 1 & 2 layout */
+.projectRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.projectRowHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.projectTitleCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.projectTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  margin: 0;
+}
+
+.projectContext {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-medium);
+  color: var(--c-text-3);
+}
+
+.rowDemoBtn {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  padding: 0;
+  transition: opacity var(--ease-fast);
+}
+
+.rowDemoBtn:hover {
+  opacity: 0.7;
+}
+
+.projectDescription {
+  font-size: var(--t-xs);
+  color: var(--c-text-2);
+  line-height: var(--lh-base);
+  margin: 0;
+}
+
+.rowDivider {
+  border: none;
+  border-top: 1px solid var(--c-border);
+  margin: 0;
+}
+
+/* AI in my work list */
+.everydayList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.everydayItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.everydayHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.blueDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.everydayItemTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  margin: 0;
+}
+
+.everydayItemDescription {
+  font-size: var(--t-xs);
+  color: var(--c-text-2);
+  line-height: var(--lh-base);
+  margin: 0;
+  padding-left: calc(var(--sp-2) + 5px);
+}
+
+/* ── Statement Bar ── */
+.statementBar {
+  background: var(--c-dark);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-3) var(--sp-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.statementText {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  margin: 0;
+  line-height: var(--lh-base);
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + var(--sp-5)) var(--sp-5) var(--sp-8);
+    overflow: visible;
+  }
+  .mainLayout {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+  .workflowSteps {
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+}

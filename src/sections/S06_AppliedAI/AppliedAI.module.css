@@ -1,0 +1,501 @@
+/* src/sections/S06_AppliedAI/AppliedAI.module.css */
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: calc(var(--header-h) + var(--sp-8)) var(--sp-12) calc(var(--sp-8) + 66px);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  margin-bottom: var(--sp-6);
+  flex-shrink: 0;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-3);
+}
+
+.homeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 7px var(--sp-4);
+  font-family: var(--font);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  color: var(--c-text-3);
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border-2);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  text-transform: uppercase;
+}
+
+.homeBtn:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent-mid);
+  background: var(--c-accent-bg);
+}
+
+.kicker {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+}
+
+.heading {
+  font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
+  font-weight: var(--fw-black);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-text-1);
+}
+
+/* ── Award banner ── */
+.awardBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--c-gold-bg);
+  border: 1px solid var(--c-gold-border);
+  border-radius: var(--r-lg);
+}
+
+.trophy {
+  font-size: var(--t-xl);
+  line-height: 1;
+}
+
+.trophyText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trophyTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-black);
+  color: var(--c-gold);
+  letter-spacing: var(--ls-snug);
+}
+
+.trophySub {
+  font-size: var(--t-2xs);
+  color: var(--c-text-3);
+  font-weight: var(--fw-medium);
+}
+
+/* ── Primary AI project cards ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  flex: 1;
+  min-height: 0;
+  margin-bottom: var(--sp-5);
+  overflow: hidden;
+}
+
+.card {
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all var(--ease-base);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--c-accent-mid);
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
+}
+
+.card.featured {
+  border-color: var(--c-accent-mid);
+  background: linear-gradient(180deg, var(--c-accent-bg) 0%, var(--c-surface) 40%);
+}
+
+.card.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+}
+
+/* ── Media area ── */
+.mediaArea {
+  position: relative;
+  background: var(--c-dark);
+  flex-shrink: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mediaArea::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(15,98,254,0.2) 0%, transparent 60%),
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 28px 28px, 28px 28px;
+}
+
+.mediaPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  position: relative;
+  z-index: 1;
+}
+
+.mediaIcon {
+  font-size: var(--t-xl);
+  color: rgba(255,255,255,0.6);
+  transition: all var(--ease-base);
+}
+
+.mediaArea[role="button"]:hover .mediaIcon {
+  color: #fff;
+  transform: scale(1.15);
+}
+
+.mediaLabel {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: rgba(255,255,255,0.5);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.achievementOverlay {
+  position: absolute;
+  top: var(--sp-2);
+  right: var(--sp-2);
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--c-gold);
+  background: rgba(8,16,30,0.85);
+  border: 1px solid var(--c-gold-border);
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+}
+
+/* ── Card info ── */
+.cardInfo {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.cardHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.event {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.teamBadge {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-4);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+}
+
+.cardName {
+  font-size: var(--t-base);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  line-height: var(--lh-snug);
+}
+
+.tagline {
+  font-size: var(--t-xs);
+  font-style: italic;
+  color: var(--c-text-3);
+  line-height: 1.4;
+}
+
+.description {
+  font-size: var(--t-xs);
+  color: var(--c-text-2);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.valueCallout {
+  font-size: var(--t-xs);
+  color: var(--c-text-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--c-accent-bg);
+  border: 1px solid var(--c-accent-mid);
+  border-radius: var(--r-md);
+  border-left: 2px solid var(--c-accent);
+  line-height: 1.4;
+}
+
+.valueCallout strong { color: var(--c-accent); }
+
+.tagGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+}
+
+.tagItem {
+  font-size: 0.6rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-3);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+}
+
+/* ── Card actions ── */
+.cardActions {
+  margin-top: auto;
+}
+
+.demoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 8px var(--sp-4);
+  font-family: var(--font);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border: 1.5px solid var(--c-accent-mid);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  width: 100%;
+  justify-content: center;
+}
+
+.demoBtn:hover {
+  background: var(--c-accent);
+  color: #fff;
+  border-color: var(--c-accent);
+  box-shadow: var(--sh-sm);
+}
+
+/* ── Practical Workflows section ── */
+.workflowsSection {
+  flex-shrink: 0;
+}
+
+.workflowsHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-3);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.workflowsLabel {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-black);
+  color: var(--c-text-1);
+  letter-spacing: var(--ls-snug);
+}
+
+.workflowsNote {
+  font-size: var(--t-xs);
+  color: var(--c-text-4);
+  font-style: italic;
+}
+
+.workflowCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+}
+
+.workflowCard {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  transition: all var(--ease-fast);
+}
+
+.workflowCard:hover {
+  border-color: var(--c-border-2);
+  box-shadow: var(--sh-sm);
+}
+
+.wfTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.wfPlatform {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.wfPositioning {
+  font-size: var(--t-2xs);
+  color: var(--c-text-4);
+  font-style: italic;
+}
+
+.wfTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  line-height: var(--lh-snug);
+}
+
+.wfFlow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.wfFlowRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.wfFlowStep {
+  font-size: 0.6rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border: 1px solid var(--c-accent-mid);
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+}
+
+.wfFlowArrow {
+  font-size: var(--t-xs);
+  color: var(--c-accent-mid);
+  font-weight: var(--fw-bold);
+}
+
+.wfDescription {
+  font-size: var(--t-xs);
+  color: var(--c-text-2);
+  line-height: 1.5;
+}
+
+.wfValue {
+  font-size: var(--t-xs);
+  font-style: italic;
+  color: var(--c-text-3);
+  border-left: 2px solid var(--c-accent-mid);
+  padding-left: var(--sp-3);
+}
+
+.wfTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+}
+
+.wfTag {
+  font-size: 0.6rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-4);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  padding: 2px 6px;
+  border-radius: var(--r-full);
+}
+
+/* ── Closing block ── */
+.closingBlock {
+  display: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + var(--sp-8)) var(--sp-5) var(--sp-8);
+    overflow: visible;
+  }
+  .cards { grid-template-columns: 1fr; overflow: visible; }
+  .workflowCards { grid-template-columns: 1fr; }
+  .header { flex-direction: column; }
+  .closingBlock {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    padding: var(--sp-4);
+    margin-top: var(--sp-4);
+    background: var(--c-bg-alt);
+    border-radius: var(--r-lg);
+    border: 1px solid var(--c-border);
+  }
+  .closing {
+    font-size: var(--t-sm);
+    font-style: italic;
+    color: var(--c-text-2);
+  }
+  .closingSub {
+    font-size: var(--t-xs);
+    color: var(--c-text-3);
+  }
+}

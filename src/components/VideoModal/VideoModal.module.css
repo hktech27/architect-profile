@@ -1,0 +1,91 @@
+/* src/components/VideoModal/VideoModal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,16,30,0.90);
+  backdrop-filter: blur(10px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-8);
+  animation: fadeIn 0.22s ease forwards;
+}
+
+.dialog {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-2);
+  border-radius: var(--r-xl);
+  width: 100%;
+  max-width: 860px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sh-lg);
+  animation: slideUp 0.28s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-bg);
+}
+
+.dialogTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-1);
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: var(--t-md);
+  color: var(--c-text-3);
+  background: none;
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+  transition: all var(--ease-base);
+}
+
+.closeBtn:hover {
+  color: #dc2626;
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.iframeWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 767px) {
+  .overlay { padding: var(--sp-4); }
+}

@@ -1,0 +1,84 @@
+/* src/components/PageIndicator/PageIndicator.module.css */
+
+.indicator {
+  position: fixed;
+  bottom: var(--sp-5);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-raised);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  padding: 7px var(--sp-4);
+  box-shadow: var(--sh-md);
+  user-select: none;
+}
+
+[data-theme="dark"] .indicator {
+  background: rgba(15,28,46,0.92);
+}
+
+
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  color: var(--c-text-3);
+  background: none;
+  border: none;
+  font-size: var(--t-sm);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  font-family: var(--font);
+}
+
+.navBtn:hover:not(:disabled) {
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+}
+
+.navBtn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+.dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-border-2);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  border: none;
+  padding: 0;
+}
+
+.dot:hover { background: var(--c-text-4); }
+
+.dot.activeDot {
+  background: var(--c-accent);
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px var(--c-accent-glow);
+}
+
+.counter {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-widest);
+  color: var(--c-text-4);
+  min-width: 40px;
+  text-align: center;
+}
+
+@media (max-width: 767px) { .indicator { display: none; } }

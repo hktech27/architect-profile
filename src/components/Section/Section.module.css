@@ -1,0 +1,21 @@
+/* src/components/Section/Section.module.css — shared section wrapper */
+
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--header-h) + var(--sp-12)) var(--sp-16) var(--sp-16);
+}
+
+@media (max-width: 767px) {
+  .section {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + var(--sp-8)) var(--sp-5) var(--sp-12);
+  }
+}

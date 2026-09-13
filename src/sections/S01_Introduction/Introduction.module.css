@@ -1,0 +1,409 @@
+/* src/sections/S01_Introduction/Introduction.module.css */
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  background: var(--c-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: background var(--ease-base);
+}
+
+/* ── Left panel ── */
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--header-h) + var(--sp-12)) var(--sp-12) calc(var(--sp-10) + 66px) var(--sp-16);
+  border-right: 1px solid var(--c-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.left::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: -120px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Badge row ── */
+.badgeRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-6);
+}
+
+/* Shared pill base */
+.pillIBM,
+.pillRole,
+.pillStatus {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+}
+
+/* IBM Consulting — blue */
+.pillIBM {
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border-color: var(--c-accent-mid);
+}
+
+/* Application Architect — purple */
+.pillRole {
+  color: var(--c-purple);
+  background: var(--c-purple-bg);
+  border-color: var(--c-purple);
+}
+
+/* Technical Leadership — teal */
+.pillStatus {
+  color: var(--c-teal);
+  background: var(--c-teal-bg);
+  border-color: var(--c-teal);
+}
+
+/* ── Name ── */
+.name {
+  font-size: clamp(var(--t-3xl), 4vw, var(--t-4xl));
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  color: var(--c-text-1);
+  margin-bottom: var(--sp-4);
+}
+
+.subtitle {
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  color: var(--c-accent);
+  letter-spacing: var(--ls-wide);
+  margin-bottom: var(--sp-5);
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  line-height: var(--lh-loose);
+  max-width: 480px;
+  margin-bottom: var(--sp-8);
+  font-style: italic;
+}
+
+/* ── Metrics ── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-8);
+}
+
+.metricCard {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-4) var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--ease-base);
+}
+
+.metricCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ease-slow);
+}
+
+.metricCard:hover::before { transform: scaleX(1); }
+.metricCard:hover { border-color: var(--c-accent-mid); box-shadow: var(--sh-sm); }
+
+.metricValue {
+  font-size: var(--t-xl);
+  font-weight: var(--fw-black);
+  color: var(--c-accent);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.1;
+}
+
+.metricValueSm {
+  font-size: var(--t-lg);
+}
+
+.metricLabel {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--c-text-1);
+}
+
+.metricDetail {
+  font-size: var(--t-2xs);
+  color: var(--c-text-3);
+  letter-spacing: 0;
+}
+
+/* ── CTAs ── */
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 13px var(--sp-6);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: #fff;
+  background: var(--c-accent);
+  border: none;
+  border-radius: var(--r-md);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  box-shadow: var(--sh-sm);
+  transition: all var(--ease-base);
+}
+
+.btnPrimary:hover {
+  background: var(--c-accent-d);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-glow);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 12px var(--sp-5);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-2);
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border-2);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--ease-base);
+}
+
+.btnSecondary:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent-mid);
+  background: var(--c-accent-bg);
+  transform: translateY(-1px);
+}
+
+/* ── Right panel ── */
+.right {
+  background: var(--c-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--header-h) + var(--sp-12)) var(--sp-10) var(--sp-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.right::before {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--c-accent-glow) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.rightInner {
+  position: relative;
+  z-index: 1;
+}
+
+.arcHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--c-dark-border);
+}
+
+.arcLabel {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--c-on-dark-3);
+}
+
+.arcBadge {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border: 1px solid var(--c-accent-mid);
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── Quote box — sits above progression ── */
+.quoteBox {
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--c-dark-border);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 0 var(--r-lg) var(--r-lg) 0;
+  background: rgba(15,98,254,0.05);
+  margin-bottom: var(--sp-4);
+}
+
+.quote {
+  font-size: var(--t-xs);
+  font-style: italic;
+  color: var(--c-on-dark-2);
+  line-height: 1.55;
+}
+
+/* ── Progression steps ── */
+.progression {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.progStep {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 9px var(--sp-4);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-lg);
+  transition: all var(--ease-base);
+}
+
+.progStep:hover {
+  background: rgba(15,98,254,0.08);
+  border-color: var(--c-accent-mid);
+  transform: translateX(4px);
+}
+
+/* Tier 0 — Architecture + AI: highest prominence */
+.progTier0 {
+  background: rgba(15,98,254,0.10);
+  border-color: var(--c-accent-mid);
+}
+[data-theme="dark"] .progTier0 {
+  background: rgba(69,137,255,0.15);
+}
+
+/* Tier 1 — Architect: second prominence, subtle highlight */
+.progTier1 {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+}
+
+/* Tier 2–5 — progressively more understated */
+.progTier2 { opacity: 0.90; }
+.progTier3 { opacity: 0.80; }
+.progTier4 { opacity: 0.70; }
+.progTier5 { opacity: 0.60; }
+
+/* Restore full opacity on hover for all tiers */
+.progStep:hover { opacity: 1; }
+
+.progDot {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-md);
+  background: var(--c-dark-2);
+  border: 1.5px solid var(--c-dark-border);
+  color: var(--c-on-dark-3);
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--ease-base);
+}
+
+/* Star dot for Architecture + AI */
+.progDotStar {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+
+.progStep:hover .progDot {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+
+.progText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.progLabel {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  letter-spacing: var(--ls-snug);
+}
+
+.progSub {
+  font-size: var(--t-2xs);
+  color: var(--c-on-dark-3);
+  letter-spacing: var(--ls-wide);
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .section {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+  .left {
+    padding: calc(var(--header-h) + var(--sp-8)) var(--sp-5) var(--sp-8);
+    border-right: none;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .right { padding: var(--sp-8) var(--sp-5); }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .ctas { flex-direction: column; align-items: flex-start; }
+}

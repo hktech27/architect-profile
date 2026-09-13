@@ -1,0 +1,436 @@
+/* src/sections/S02_CareerArc/CareerArc.module.css */
+
+/* ── Section shell ── */
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: calc(var(--header-h) + var(--sp-5)) var(--sp-12) calc(var(--sp-4) + 66px);
+  gap: var(--sp-4);
+  position: relative;
+}
+
+/* ── Page header ── */
+.pageHeader {
+  flex-shrink: 0;
+}
+
+.kicker {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+}
+
+.heading {
+  font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
+  font-weight: var(--fw-black);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-text-1);
+}
+
+/* ── Two-column layout ── */
+.rolesLayout {
+  display: grid;
+  grid-template-columns: 248px 1fr;
+  gap: var(--sp-5);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ────────────────────────── LEFT NAV ── */
+
+.rolesList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  background: var(--c-dark);
+  border-radius: var(--r-xl);
+  padding: var(--sp-3);
+}
+
+.roleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: 10px var(--sp-4);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  transition: all var(--ease-base);
+  position: relative;
+}
+
+.roleItem:hover {
+  border-color: rgba(69,137,255,0.35);
+  background: rgba(69,137,255,0.06);
+}
+
+.roleItemActive {
+  border-color: var(--c-accent) !important;
+  background: rgba(69,137,255,0.11) !important;
+}
+
+.roleItemCurrent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--c-accent);
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+}
+
+.roleItemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.16);
+  flex-shrink: 0;
+  margin-top: 6px;
+  transition: background var(--ease-base);
+}
+
+.roleItemActive .roleItemDot,
+.roleItemCurrent .roleItemDot {
+  background: var(--c-accent);
+}
+
+.roleItemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.roleItemPeriod {
+  font-size: 0.6rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.roleItemTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  line-height: var(--lh-snug);
+}
+
+.roleItemProof {
+  font-size: var(--t-2xs);
+  color: var(--c-accent);
+  margin-top: 3px;
+  font-weight: var(--fw-semibold);
+}
+
+/* ────────────────────────── RIGHT PANEL ── */
+
+.roleDetail {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-7) var(--sp-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  overflow-y: auto;
+  position: relative;
+}
+
+.roleDetailBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-purple));
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  pointer-events: none;
+}
+
+/* Title + date on same line */
+.roleDetailTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.roleDetailTitle {
+  font-size: clamp(var(--t-xl), 2.2vw, var(--t-2xl));
+  font-weight: var(--fw-black);
+  color: var(--c-text-1);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  margin: 0;
+}
+
+.roleDetailPeriod {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text-3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.roleDetailOrg {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  font-weight: var(--fw-medium);
+  margin: calc(-1 * var(--sp-2)) 0 0;
+}
+
+/* Thin rule after org */
+.divider {
+  border: none;
+  border-top: 1px solid var(--c-border);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Positioning statement — the role's "one liner" */
+.positioning {
+  font-size: var(--t-base);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-1);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+
+/* Context (italic, below positioning) */
+.roleDetailContext {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  font-style: italic;
+  margin: calc(-1 * var(--sp-2)) 0 0;
+}
+
+/* ── Bullet list ── */
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bulletItem {
+  font-size: var(--t-sm);
+  color: var(--c-text-2);
+  line-height: 1.65;
+  padding-left: var(--sp-5);
+  position: relative;
+}
+
+.bulletItem::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--c-border-2);
+  font-size: var(--t-sm);
+  line-height: inherit;
+}
+
+/* ── Proof strip (PolicyCenter scale) ── */
+.proofStrip {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-3);
+  margin: 0;
+  padding: var(--sp-3) 0;
+  border-top: 1px solid var(--c-border);
+}
+
+/* ── Metric callout — visually stronger than body text ── */
+.metricCallout {
+  display: inline-block;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border-left: 3px solid var(--c-accent);
+  padding: 6px var(--sp-4);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  margin: 0;
+}
+
+/* ── Closing statement ── */
+.closingNote {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  line-height: var(--lh-loose);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ────────────────────────── ARCHITECT TIMELINE ── */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-5);
+}
+
+.timelineItem:last-of-type {
+  padding-bottom: var(--sp-3);
+}
+
+/* Left spine column */
+.timelineSpine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.timelineNode {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+  border: 2px solid var(--c-surface);
+  box-shadow: 0 0 0 2px var(--c-accent-mid);
+}
+
+.timelineLine {
+  flex: 1;
+  width: 1px;
+  background: var(--c-border-2);
+  margin-top: 6px;
+}
+
+/* Right content column */
+.timelineContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding-bottom: 0;
+}
+
+.timelinePeriod {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--c-accent);
+  letter-spacing: var(--ls-wider);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.timelineTitle {
+  font-size: var(--t-base);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  letter-spacing: var(--ls-snug);
+  margin: 0;
+  line-height: var(--lh-snug);
+}
+
+.timelineBody {
+  font-size: var(--t-sm);
+  color: var(--c-text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.timelineSecondary {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Evolution strip — sits below the timeline ── */
+.evolutionStrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  margin-top: var(--sp-2);
+}
+
+.evolutionStep {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-3);
+  letter-spacing: 0.02em;
+}
+
+.evolutionArrow {
+  color: var(--c-accent);
+  font-size: var(--t-2xs);
+  opacity: 0.6;
+}
+
+/* ────────────────────────── FOOTER BAND ── */
+
+.progressionBand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.bandPill {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-3);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-2);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  transition: all var(--ease-base);
+}
+
+.bandPillActive {
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border-color: var(--c-accent-mid);
+  font-weight: var(--fw-bold);
+}
+
+.bandArrow {
+  font-size: var(--t-xs);
+  color: var(--c-text-4);
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + var(--sp-5)) var(--sp-5) var(--sp-8);
+    overflow: visible;
+    gap: var(--sp-4);
+  }
+  .rolesLayout {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+}

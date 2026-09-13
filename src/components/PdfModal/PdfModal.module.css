@@ -1,0 +1,144 @@
+/* src/components/PdfModal/PdfModal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,16,30,0.88);
+  backdrop-filter: blur(10px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.dialog {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  width: 92vw;
+  max-width: 1100px;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+  animation: slideUp 0.26s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.dialogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-6);
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-bg);
+  flex-shrink: 0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.badge {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-bold);
+  color: var(--c-accent);
+  background: var(--c-accent-bg);
+  border: 1px solid var(--c-accent-mid);
+  padding: 2px 9px;
+  border-radius: var(--r-full);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+}
+
+.dialogTitle {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.openExternalBtn {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  background: #fff;
+  border: 1px solid var(--c-accent-mid);
+  padding: 4px 12px;
+  border-radius: var(--r-md);
+  transition: all var(--ease-fast);
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+.openExternalBtn:hover {
+  background: var(--c-accent);
+  color: #fff;
+  border-color: var(--c-accent);
+}
+
+.closeBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: var(--c-text-3);
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid var(--c-border);
+  transition: all var(--ease-fast);
+  font-family: var(--font);
+}
+
+.closeBtn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.pdfContainer {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background: #525659;
+}
+
+.pdfViewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.fallbackBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--sp-4);
+  color: #ffffff;
+  font-size: var(--t-sm);
+  background: var(--c-dark-2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}

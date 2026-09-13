@@ -1,0 +1,36 @@
+/* src/App.module.css */
+
+.app {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.slideContainer {
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw * 9);
+  height: 100vh;
+  transition: transform var(--ease-slide);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slideContainer { transition: none; }
+}
+
+.mobileContainer { display: none; }
+
+@media (max-width: 767px) {
+  .app {
+    overflow: visible;
+    height: auto;
+    min-height: 100svh;
+  }
+  .slideContainer { display: none; }
+  .mobileContainer {
+    display: block;
+    width: 100%;
+  }
+}

@@ -1,0 +1,376 @@
+/* src/sections/S03_Platform/Platform.module.css */
+
+/* ── Section shell ── */
+.section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg);
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: calc(var(--header-h) + var(--sp-5)) var(--sp-12) calc(var(--sp-4) + 66px);
+  gap: var(--sp-4);
+  position: relative;
+}
+
+/* ── Page header ── */
+.pageHeader {
+  flex-shrink: 0;
+}
+
+.kicker {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+  text-transform: lowercase;
+}
+
+.heading {
+  font-size: clamp(var(--t-lg), 2vw, var(--t-2xl));
+  font-weight: var(--fw-black);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--c-text-1);
+  margin: 0;
+}
+
+.subheading {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  font-style: italic;
+  margin-top: var(--sp-2);
+  margin-bottom: 0;
+  line-height: var(--lh-base);
+}
+
+/* ── Body — three columns ── */
+.body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 5fr 4fr 3fr;
+  gap: var(--sp-5);
+  overflow: hidden;
+}
+
+/* ── Shared zone ── */
+.zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-height: 0;
+}
+
+/* Zone label row — label + optional action inline */
+.zoneLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--c-border);
+  flex-shrink: 0;
+}
+
+.zoneLabel {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  color: var(--c-text-4);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* "View architecture diagrams ↗" link-style button */
+.diagramsLink {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  padding: 0;
+  letter-spacing: 0.01em;
+  transition: opacity var(--ease-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.diagramsLink:hover {
+  opacity: 0.7;
+}
+
+/* ══════════════════════════════════════
+   ZONE 1 — Production architecture
+══════════════════════════════════════ */
+
+/* Sources block */
+.sourcesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+.blockMetaRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.blockMeta {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-2);
+  margin: 0;
+}
+
+.blockHint {
+  font-size: var(--t-2xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-accent);
+  flex-shrink: 0;
+  letter-spacing: 0.01em;
+}
+
+.sourcesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.sourceCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 7px var(--sp-3);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  font-family: var(--font);
+  width: 100%;
+  text-align: left;
+  transition: border-color var(--ease-fast), background var(--ease-fast);
+}
+
+.sourceCard:hover {
+  border-color: var(--c-accent-mid);
+  background: var(--c-accent-bg);
+}
+
+.sourceDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  flex-shrink: 0;
+}
+
+.sourceName {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sourceRight {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.sourceNote {
+  font-size: var(--t-2xs);
+  color: var(--c-text-4);
+  font-style: italic;
+}
+
+.sourceDiagramIcon {
+  font-size: var(--t-2xs);
+  color: var(--c-accent);
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity var(--ease-fast);
+}
+
+.sourceCard:hover .sourceDiagramIcon {
+  opacity: 1;
+}
+
+.sourcesFooter {
+  font-size: var(--t-2xs);
+  color: var(--c-text-4);
+  margin: 0;
+}
+
+/* ── Dark architecture band — single cohesive component ── */
+.archBand {
+  background: var(--c-dark);
+  border: 1px solid var(--c-dark-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.archBandFlow {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--sp-2);
+  overflow: hidden;
+}
+
+.archStage {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-2);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.archStageAccent {
+  color: var(--c-accent);
+  font-weight: var(--fw-bold);
+}
+
+.archArrow {
+  color: var(--c-on-dark-3);
+  font-size: var(--t-2xs);
+  flex-shrink: 0;
+}
+
+.archBandCaption {
+  font-size: var(--t-xs);
+  color: var(--c-on-dark-3);
+  margin: 0;
+  line-height: var(--lh-snug);
+}
+
+.archBandDivider {
+  border: none;
+  border-top: 1px solid var(--c-dark-border);
+  margin: 0;
+}
+
+.archBandTakeaway {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-on-dark-1);
+  line-height: var(--lh-snug);
+  margin: 0;
+  letter-spacing: var(--ls-snug);
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-dark-border);
+}
+
+/* ══════════════════════════════════════
+   ZONE 2 — Architecture judgment
+══════════════════════════════════════ */
+
+.decisionsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.decisionCard {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-accent);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.decisionLabel {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--c-text-1);
+  margin: 0;
+}
+
+.decisionBody {
+  font-size: var(--t-sm);
+  color: var(--c-text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.decisionTakeaway {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-text-1);
+  margin: 0;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-border);
+}
+
+/* ══════════════════════════════════════
+   ZONE 3 — Platform thinking
+══════════════════════════════════════ */
+
+.capabilitiesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  flex: 1;
+}
+
+.capabilityCard {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-left: 3px solid var(--c-border-2);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.capabilityLabel {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-1);
+  margin: 0;
+  letter-spacing: var(--ls-snug);
+}
+
+.capabilityBody {
+  font-size: var(--t-sm);
+  color: var(--c-text-3);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .section {
+    height: auto;
+    min-height: 100svh;
+    padding: calc(var(--header-h) + var(--sp-5)) var(--sp-5) var(--sp-8);
+    overflow: visible;
+    gap: var(--sp-5);
+  }
+
+  .body {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+}
