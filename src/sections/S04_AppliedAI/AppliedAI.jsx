@@ -32,7 +32,7 @@ export default function AppliedAI({ isActive, onOpenDemo, goTo }) {
       name: 'BR Impact Lens',
       description: 'AI workflow for tracing the downstream impact of insurance business rule changes.',
       achievement: 'watsonx Challenge 2026',
-      demoUrl: '/architect-profile/demos/BR-ImpactLens.mp4'
+      demoUrl: 'https://ibm.box.com/s/ljaqqqrpacd45tk787foepesi4uhybiz'
     }
   ]
 

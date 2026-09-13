@@ -22,23 +22,29 @@ export default function VideoModal({ url, title, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [onClose])
 
-  // Convert YouTube watch URLs to embed URLs
+  // Detect URL type
+  const isVideo   = /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
+  const isBoxLink = /box\.com\/s\//i.test(url)
+
+  // Convert YouTube / Vimeo watch URLs to embed URLs
   const getEmbedUrl = (rawUrl) => {
     if (!rawUrl) return ''
-    // Already an embed URL
     if (rawUrl.includes('embed')) return rawUrl
-    // YouTube watch URL
     const ytMatch = rawUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/)
     if (ytMatch) return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1`
-    // Vimeo
     const vimeoMatch = rawUrl.match(/vimeo\.com\/(\d+)/)
     if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`
-    // Return as-is (could be a direct mp4)
     return rawUrl
   }
 
   const embedUrl = getEmbedUrl(url)
-  const isVideo = /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
+
+  // Box share links open best in a new tab — open immediately and close modal
+  if (isBoxLink) {
+    window.open(url, '_blank', 'noopener,noreferrer')
+    onClose()
+    return null
+  }
 
   return (
     <div
