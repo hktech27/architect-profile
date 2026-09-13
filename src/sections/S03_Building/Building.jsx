@@ -72,7 +72,7 @@ export default function Building({ isActive, onOpenPdf, goTo }) {
             {/* Genesys AVA — team architecture */}
             <button
               className={styles.sourceChipBtn}
-              onClick={() => onOpenPdf && onOpenPdf({ url: '/architect-profile/architecture/Genesys AVA.pdf', title: 'Genesys AVA — Architecture Diagram' })}
+              onClick={() => onOpenPdf && onOpenPdf({ url: '/himanshur-khatri/architect-profile/architecture/Genesys AVA.pdf', title: 'Genesys AVA — Architecture Diagram' })}
               title="Click to view Genesys AVA Architecture Diagram PDF"
             >
               <div className={styles.sourceInfo}>

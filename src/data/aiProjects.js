@@ -5,7 +5,7 @@
  *
  * demoUrl: Set to a YouTube/Vimeo URL to enable the Watch Demo button.
  *          Leave as "" to show a "View Solution" button instead.
- *          Set to a local file path (e.g. "/architect-profile/demos/PreClaimIQ.mp4")
+ *          Set to a local file path (e.g. "/himanshur-khatri/architect-profile/demos/PreClaimIQ.mp4")
  *          for locally hosted video.
  *
  * NOTE: File names with spaces or special characters must be URL-encoded.
@@ -24,7 +24,7 @@ export const aiProjects = [
       'Agentic insurance prototype combining multiple specialized agents, enterprise context and domain knowledge to assist pre-claim intake and triage.',
     executiveValue: 'Demonstrated how multiple context-grounded agents can cooperate across an insurance workflow with traceable enterprise context.',
     tags: ['IBM ICA / Agentic App Studio', 'Context Studio', 'MCP', 'Knowledge Graph', 'React', 'Node.js'],
-    demoUrl: '/architect-profile/demos/PreClaimIQ.mp4',
+    demoUrl: '/himanshur-khatri/architect-profile/demos/PreClaimIQ.mp4',
     highlight: true,
   },
   {
@@ -38,7 +38,7 @@ export const aiProjects = [
       'Generative AI prototype for interpreting commercial insurance policy wording and surfacing coverage considerations for review.',
     executiveValue: 'Demonstrated practical use of Generative AI for document-heavy insurance workflows.',
     tags: ['Generative AI', 'Document Intelligence', 'Commercial Insurance', 'Azure OpenAI'],
-    demoUrl: '/architect-profile/demos/CoverIQ.mp4',
+    demoUrl: '/himanshur-khatri/architect-profile/demos/CoverIQ.mp4',
     highlight: false,
   },
   {
@@ -52,7 +52,7 @@ export const aiProjects = [
       'Prototype for analyzing the downstream impact of insurance business-rule changes across related systems, APIs, schemas and workflows.',
     executiveValue: 'Explores how AI can help teams understand change impact before implementation and testing.',
     tags: ['watsonx', 'Agentic workflows', 'Insurance Business Rules', 'Legacy Modernization'],
-    demoUrl: '/architect-profile/demos/BR-ImpactLens.mp4',
+    demoUrl: '/himanshur-khatri/architect-profile/demos/BR-ImpactLens.mp4',
     highlight: false,
   },
 ]

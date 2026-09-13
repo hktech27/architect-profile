@@ -4,12 +4,12 @@ import styles from './Platform.module.css'
 
 /* ── Sources — each carries its own diagram PDF path ── */
 const sources = [
-  { name: 'State Street',     note: null,                pdf: '/architect-profile/architecture/Statestreet.pdf' },
-  { name: 'Burgiss',          note: null,                pdf: '/architect-profile/architecture/Burgiss.pdf' },
-  { name: 'Speech Analytics', note: null,                pdf: '/architect-profile/architecture/Speech Analytics.pdf' },
-  { name: 'Adobe',            note: null,                pdf: '/architect-profile/architecture/Adobe.pdf' },
-  { name: 'JIRA',             note: null,                pdf: '/architect-profile/architecture/JIRA.pdf' },
-  { name: 'Genesys AVA',      note: 'team contribution', pdf: '/architect-profile/architecture/Genesys AVA.pdf' },
+  { name: 'State Street',     note: null,                pdf: '/himanshur-khatri/architect-profile/architecture/Statestreet.pdf' },
+  { name: 'Burgiss',          note: null,                pdf: '/himanshur-khatri/architect-profile/architecture/Burgiss.pdf' },
+  { name: 'Speech Analytics', note: null,                pdf: '/himanshur-khatri/architect-profile/architecture/Speech Analytics.pdf' },
+  { name: 'Adobe',            note: null,                pdf: '/himanshur-khatri/architect-profile/architecture/Adobe.pdf' },
+  { name: 'JIRA',             note: null,                pdf: '/himanshur-khatri/architect-profile/architecture/JIRA.pdf' },
+  { name: 'Genesys AVA',      note: 'team contribution', pdf: '/himanshur-khatri/architect-profile/architecture/Genesys AVA.pdf' },
 ]
 
 const dataLayers = [

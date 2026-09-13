@@ -37,7 +37,7 @@ export const architectureCases = [
       { option: 'Chosen: Independent Trigger Files', verdict: 'Granular operational restart control per downstream path' }
     ],
     decisionNote: 'Architecture should support how the system will actually be operated.',
-    pdfPath: '/architect-profile/architecture/Statestreet.pdf',
+    pdfPath: '/himanshur-khatri/architect-profile/architecture/Statestreet.pdf',
   },
   {
     id: 'speech-analytics',
@@ -64,7 +64,7 @@ export const architectureCases = [
       { option: 'Evolved: Step Functions + Glue', verdict: 'Handles production volume with appropriate tooling at each layer' }
     ],
     decisionNote: 'Lambda constraints at production volume → Step Functions + Glue orchestration.',
-    pdfPath: '/architect-profile/architecture/Speech Analytics.pdf',
+    pdfPath: '/himanshur-khatri/architect-profile/architecture/Speech Analytics.pdf',
   },
   {
     id: 'genesys-ava',
@@ -91,6 +91,6 @@ export const architectureCases = [
       { option: 'Chosen: Explicit wait/retry/checkpoint', verdict: 'Handles delayed data within normal operating bounds without manual intervention' }
     ],
     decisionNote: 'Distributed workflows must design for time and state, not only data movement.',
-    pdfPath: '/architect-profile/architecture/Genesys AVA.pdf',
+    pdfPath: '/himanshur-khatri/architect-profile/architecture/Genesys AVA.pdf',
   },
 ]

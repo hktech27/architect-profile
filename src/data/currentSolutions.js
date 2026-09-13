@@ -10,11 +10,11 @@ export const productionPipelines = {
   heading: 'Production Data Pipelines',
   subheading: 'Five enterprise integrations in production.',
   sources: [
-    { name: 'State Street', pdf: '/architect-profile/architecture/Statestreet.pdf', tech: 'REST · S3 Event Triggers' },
-    { name: 'Burgiss', pdf: '/architect-profile/architecture/Burgiss.pdf', tech: 'Scheduled Ingestion · API' },
-    { name: 'Speech Analytics', pdf: '/architect-profile/architecture/Speech Analytics.pdf', tech: 'Step Functions · Glue Spark' },
-    { name: 'Adobe', pdf: '/architect-profile/architecture/Adobe.pdf', tech: 'Analytics Ingest · S3 Stage' },
-    { name: 'JIRA', pdf: '/architect-profile/architecture/JIRA.pdf', tech: 'Enterprise Agile Pipeline' },
+    { name: 'State Street', pdf: '/himanshur-khatri/architect-profile/architecture/Statestreet.pdf', tech: 'REST · S3 Event Triggers' },
+    { name: 'Burgiss', pdf: '/himanshur-khatri/architect-profile/architecture/Burgiss.pdf', tech: 'Scheduled Ingestion · API' },
+    { name: 'Speech Analytics', pdf: '/himanshur-khatri/architect-profile/architecture/Speech Analytics.pdf', tech: 'Step Functions · Glue Spark' },
+    { name: 'Adobe', pdf: '/himanshur-khatri/architect-profile/architecture/Adobe.pdf', tech: 'Analytics Ingest · S3 Stage' },
+    { name: 'JIRA', pdf: '/himanshur-khatri/architect-profile/architecture/JIRA.pdf', tech: 'Enterprise Agile Pipeline' },
   ],
   sourceNote: 'Enterprise data sources and integrations within the Amica environment.',
   dataLayers: [

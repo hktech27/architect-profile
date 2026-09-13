@@ -18,8 +18,8 @@ export const siteConfig = {
   ],
 
   resumePaths: [
-    { file: '/architect-profile/resume/Himanshu_Resume_1Page.pdf',  name: 'Himanshu-Khatri-Resume-1Page.pdf' },
-    { file: '/architect-profile/resume/Himanshu_Resume_Full.pdf',   name: 'Himanshu-Khatri-Resume-Full.pdf'  },
+    { file: '/himanshur-khatri/architect-profile/resume/Himanshu_Resume_1Page.pdf',  name: 'Himanshu-Khatri-Resume-1Page.pdf' },
+    { file: '/himanshur-khatri/architect-profile/resume/Himanshu_Resume_Full.pdf',   name: 'Himanshu-Khatri-Resume-Full.pdf'  },
   ],
 
   links: {
